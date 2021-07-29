@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/rutas/js/vue.js"></script>
+    <script src="/rutas/js/componentes/imagePost.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Vue - for index</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div id="app">
+
+            <ul>
+                <li v-for="(l, index) in languages">{{l}} {{index}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                languages: ["Javascript", "Java", "Kotlin", "Swift"]
+            }
+        })
+    </script>
+
+</body>
+
+</html>

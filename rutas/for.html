@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../vue.js/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <ul>
+            <li v-for="person in people">{{ person }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(person, index) in people">
+                {{ index = index + 1}} - {{ person }}
+                <span v-if="index % 2 == 0 "> Este es un elemento par</span>
+            </li>
+        </ul>
+
+        <button class="btn btn-success" v-on:click="filterPeople">filtar 5 caracteres</button>
+
+
+        <ul>
+            <li v-for="(person, index) in ArrayObjets">
+                {{ person.name }} - {{person.surname}} - {{person.age}}
+                <span v-if="index % 2 == 0 "> Este es un elemento par</span>
+            </li>
+        </ul>
+
+        <input v-model="filtro_edad" type="text">
+        <button class="btn btn-primary" v-on:click="filterPeopleObjets">filtar por Edad</button>
+
+    </div>
+    <script src="../MiPrimerIndex/app.js"></script>
+</body>
+
+</html>

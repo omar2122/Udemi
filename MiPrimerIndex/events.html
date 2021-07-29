@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../vue.js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="incrementar">Incrementear</button>
+        <button @click="decrementar">Decrementar</button> {{numero}}
+        <button v-on:click="incrementar">Incrementear</button>
+        <button v-on:click="decrementar">Decrementar</button> {{numero}}
+        <h1 :style="{color:'blue', fontSize:numero+'px'}">Hola mundo {{numero}} {{people[0]}} </h1>
+
+
+
+    </div>
+    <script src="../MiPrimerIndex/app.js"></script>
+</body>
+
+</html>

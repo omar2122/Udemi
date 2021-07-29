@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../vue.js/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="value > 5"> value es mayor 5</div>
+        <div v-elseif="value == 5"> Es 5</div>
+        <div v-else> es menor que 5</div>
+
+        <div v-if="isVisible == true"> Es visible</div>
+        <div v-else>No es visible</div>
+
+
+
+    </div>
+    <script src="../MiPrimerIndex/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../vue.js/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .error {
+        color: red;
+    }
+    
+    .no_error {
+        color: blue;
+    }
+</style>
+
+<body>
+    <div id="app">
+
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+
+        <router-view></router-view>
+
+
+        <h1 :class="{ error: p_error, no_error: !p_error }">Esto es un texto</h1>
+
+        <h1 v-if="p_error">Esto es un texto con if</h1>
+
+        <h1 v-show="p_error">Esto es un texto con show</h1>
+
+        <div v-html="content_html"></div>
+
+        <img v-blid:src="src" :alt=text> {{ message }}
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        <p>{{ calculateSum(sum,5) }}</p>
+        {{sum}}
+
+        <ul>
+            <li v-for="(persona, index) in people">
+                {{ persona }} - {{ persona }}
+            </li>
+        </ul>
+
+    </div>
+    <script src="../MiPrimerIndex/app.js"></script>
+</body>
+
+</html>

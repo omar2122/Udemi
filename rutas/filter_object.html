@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/rutas/js/vue.js"></script>
+    <script src="/rutas/js/componentes/imagePost.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Vue - for index</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div id="app">
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" placeholder="Nombre" class="form-control" v-model="filterField">
+            </div>
+
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="text" placeholder="Edad" class="form-control" v-model="filterAgeField">
+            </div>
+
+            <div class="form-group">
+                <label>Inactivos</label>
+                <input type="checkbox" v-on:click="filterFieldActive = 0" v-model="filterFieldInactive">
+            </div>
+
+            <div class="form-group">
+                <label>Activos</label>
+                <input type="checkbox" v-on:click="filterFieldInactive = 0" v-model="filterFieldActive">
+            </div>
+
+            <table class="table">
+                <tr>
+                    <th> Nombre </th>
+                    <th> Apellido </th>
+                    <th> Edad </th>
+                    <th> Activo </th>
+                </tr>
+                <tr v-show="filter(person) " v-for="person in people">
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.surname }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.active }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                people: [{
+                    name: "Andres",
+                    surname: "cruz",
+                    age: 28,
+                    active: true
+                }, {
+                    name: "Fernando",
+                    surname: "Vargas",
+                    age: 33,
+                    active: false
+                }, {
+                    name: "Samuel",
+                    surname: "Veracruz",
+                    age: 13,
+                    active: true
+                }, {
+                    name: "Andrea",
+                    surname: "Flores",
+                    age: 21,
+                    active: false
+                }, {
+                    name: "Sara",
+                    surname: "Hernandez",
+                    age: 42,
+                    active: true
+                }],
+                filterField: '',
+                filterAgeField: '',
+                filterFieldActive: 0,
+                filterFieldInactive: 0,
+
+            },
+            methods: {
+                filter(person) {
+                    console.log(person.name + " " + this.filterField)
+
+                    var show = true;
+
+                    if (this.filterAgeField !== "" && person.age.toString() !== this.filterAgeField)
+                        show = false;
+                    else if (person.name.toLocaleLowerCase().indexOf(this.filterField.toLocaleLowerCase()) < 0)
+                        show = false;
+                    else if (person.active == false && this.filterFieldActive)
+                        show = false;
+                    else if (person.active == false && this.filterFieldActive)
+                        show = false;
+                    else if (person.active == true && this.filterFieldInactive)
+                        show = false;
+
+                    return show;
+
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

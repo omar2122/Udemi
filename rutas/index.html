@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/rutas/js/vue.js"></script>
+    <script src="/rutas/js/vue-router.js"></script>
+    <script src="/rutas/js/componentes/imagePost.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Vue</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div id="app">
+
+            <router-link to="/"> Home </router-link>
+            <router-link to="/List_person"> Lista Personas </router-link>
+            <router-link to="/List_programing"> Lista lenguajes </router-link>
+
+            <img-post :url="img_pixa"></img-post>
+
+            <modal-bootstrap>
+                <div slot="header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hola Mundo</h5>
+                </div>
+                <p>Esto es un contenido para bootstrap</p>
+                <div slot="footer">
+                    <button type="button" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-warning">No Se</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </modal-bootstrap>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+
+            <router-view></router-view>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <script src="/rutas/js/componentes/Slot.js"></script>
+    <script src="/rutas/js/componentes/ListsPerson.js"></script>
+    <script src="/rutas/js/componentes/ListPrograming.js"></script>
+    <script src="/rutas/js/componentes/ListAlert.js"></script>
+    <script src="/rutas/js/app.js"></script>
+</body>
+
+</html>

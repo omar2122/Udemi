@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/rutas/js/vue.js"></script>
+    <script src="/rutas/js/componentes/imagePost.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Vue - for index</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div id="app">
+
+            <select>
+                <option v-if="filter(l) " v-for="l in languages"  :value="l" >{{l}}</option>
+            </select>
+
+            <input type="text" v-model="filterField">
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                languages: ["Javascript", "Java", "Kotlin", "Swift"],
+                filterField: ''
+            },
+            methods: {
+                filter(l) {
+                    console.log(l + " " + this.filterField)
+
+
+                    return l.toLocaleLowerCase().indexOf(this.filterField.toLocaleLowerCase()) >= 0;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
