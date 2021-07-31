@@ -15,25 +15,49 @@
     <div class="container">
         <div id="app">
 
+            <!-- ----------------------------------------- input-NOmbre------------------------------------------ -->
             <div class="form-group">
                 <label>Nombre</label>
                 <input type="text" placeholder="Nombre" class="form-control" v-model="filterField">
             </div>
 
-            <div class="form-group">
-                <label>Edad</label>
-                <input type="text" placeholder="Edad" class="form-control" v-model="filterAgeField">
+            <!-- ----------------------------------------- input-Edad------------------------------------------ -->
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Edad</label>
+                        <input type="text" placeholder="Edad" class="form-control" v-model="filterAgeField">
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <label></label>
+                    <select class="form-control" v-model="selectAgeField">
+                        <option value="<">&#60</option>
+                        <option value=">">&#62</option>
+                        <option value="<=">&#60;=</option>
+                        <option value=">=">&#62;=</option>
+                        <option value="==">=</option>
+                    </select>
+                </div>
+
             </div>
+            <!-- ----------------------------------------- input-Inactivo------------------------------------------ -->
 
             <div class="form-group">
                 <label>Inactivos</label>
                 <input type="checkbox" v-on:click="filterFieldActive = 0" v-model="filterFieldInactive">
             </div>
 
+            <!-- ----------------------------------------- input-Activos------------------------------------------ -->
+
             <div class="form-group">
                 <label>Activos</label>
                 <input type="checkbox" v-on:click="filterFieldInactive = 0" v-model="filterFieldActive">
             </div>
+
+            <!-- ----------------------------------------- Tabla------------------------------------------ -->
 
             <table class="table">
                 <tr>
@@ -86,6 +110,8 @@
                 filterAgeField: '',
                 filterFieldActive: 0,
                 filterFieldInactive: 0,
+                selectAgeField: '==',
+
 
             },
             methods: {
@@ -93,9 +119,11 @@
                     console.log(person.name + " " + this.filterField)
 
                     var show = true;
+                    // console.log(person.age.toString() + this.selectAgeField + this.filterAgeField)
+                    console.log(this.filterAgeField + this.selectAgeField + person.age)
 
-                    if (this.filterAgeField !== "" && person.age.toString() !== this.filterAgeField)
-                        show = false;
+                    if (this.filterAgeField != "") //this.filterAgeField !== "" && person.age.toString() !== this.filterAgeField
+                        show = eval(this.filterAgeField + this.selectAgeField + person.age);
                     else if (person.name.toLocaleLowerCase().indexOf(this.filterField.toLocaleLowerCase()) < 0)
                         show = false;
                     else if (person.active == false && this.filterFieldActive)
@@ -106,7 +134,6 @@
                         show = false;
 
                     return show;
-
                 }
             }
         })
